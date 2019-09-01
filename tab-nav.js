@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import {FaIcon} from 'faicon-mixin';
+import axios from 'axios';
 
 /**
  * `tab-nav`
@@ -19,7 +20,10 @@ class TabNav extends FaIcon(LitElement) {
   static get properties() {
     return {
       title: { type: String },
-      tabItems: { type: Array }
+      tabItems: { type: Array },
+      page: { type: String },
+      callback: { type: String },
+      text: { type: String }
     };
   }
 
@@ -294,13 +298,18 @@ class TabNav extends FaIcon(LitElement) {
 
   constructor() {
     super();
+    const AXIOS = new axios();
+    this.loadedText = '';
     this.title = '';
     this.tabItems = [
       {title: 'Office', icon: 'briefcase', page: 'office.html', callback: 'office' },
-      {title: 'Delivery Content', icon: 'home', page: 'home.html', callback: 'home' },
-      {title: 'Shopping', icon: 'shopping-cart', page: 'shopping.html' },
-      {title: 'Returns', icon: 'calendar', page: 'returns.html' }
+      {title: 'Delivery Content', icon: 'home', page: 'home.html' },
+      {title: 'Shopping', icon: 'shopping-cart', text: 'Lorem ipsum ipsum lorem...', callback: 'shopping' },
+      {title: 'Returns', icon: 'calendar', text: 'Lorem ipsum...' }
     ];
+    this.tabItems.forEach((tabItem)=>{
+
+    });
   }
 
   render() {
@@ -332,7 +341,7 @@ class TabNav extends FaIcon(LitElement) {
     return html`
             <section id="${tabItem.title.replace(/\s/gm, '_')}">
               <h2>${tabItem.title}</h2>
-              texto de algo ${index}
+              ${this.loadedText}
             </section>
             `;
   })}

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/manu/tab-nav",
   "dependencies": {
+    "axios": "^0.19.0",
     "faicon-mixin": "^1.1.0",
     "lit-element": "^2.1.0"
   },
