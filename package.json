@@ -1,7 +1,7 @@
 {
   "name": "tab-nav",
   "description": "Lit-Element webcomponent tab-nav",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "tab-nav.js",
   "repository": {
     "type": "git",
