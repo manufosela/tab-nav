@@ -87,7 +87,6 @@ export const tabNavStyles = css`
         display: none;
       }
       .tabs ul li label svg {
-        fill: var(--color-secundary);
         height: 1.2em;
         vertical-align: bottom;
         margin-right: 0.2em;
@@ -95,10 +94,10 @@ export const tabNavStyles = css`
       }
       .tabs ul li label:hover, .tabs ul li label:focus, .tabs ul li label:active {
         outline: 0;
-        color: #var(--color-tertiary);
+        color: var(--color-tertiary);
       }
       .tabs ul li label:hover svg, .tabs ul li label:focus svg, .tabs ul li label:active svg {
-        fill: #var(--color-tertiary);
+        fill: var(--color-tertiary);
       }
       .tabs .slider {
         position: relative;
