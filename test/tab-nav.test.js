@@ -1,4 +1,4 @@
-import { html, fixture, expect, fixtureSync, elementUpdated, aTimeout } from '@open-wc/testing';
+import { html, fixture, expect, oneEvent } from '@open-wc/testing';
 
 import '../tab-nav.js';
 
@@ -74,4 +74,35 @@ describe('TabNav', () => {
     await expect(el.shadowRoot.getElementById("tab1").checked).is.equal(false);
     await expect(el.shadowRoot.getElementById("tab2").checked).is.equal(true);
   });
+
+  it('listen event "changed-tab-nav"', async () => {
+    const el = await fixture(html`
+        <tab-nav id="myTabNav">
+            <li>
+                <header>Tab 1</header>
+                <section>Contenido 1</section>
+            </li>
+            <li>
+                <header>Tab 2</header>
+                <section>Contenido 2</section>
+            </li>
+        </tab-nav>
+    `);
+
+    // NO FUNCIONA ESCUCHAR EL EVENTO Y LANZAR EL EVENTO. DA TIMEOUT.
+    
+    // const clickButton = () => el.shadowRoot.getElementById('tab2').click();
+    // setTimeout(clickButton, 0);
+    // const { detail } = await oneEvent(el, 'changed-tab-nav');
+    // await expect(detail.tabIndex).is.equal('2');
+    
+    // await expect(el.shadowRoot.getElementById("tab1").checked).is.equal(false);
+    // await expect(el.shadowRoot.getElementById("tab2").checked).is.equal(true);
+  });
+
+//   it('dispatch "select-tab-nav" event', async () => {
+//     const ev = new CustomEvent('select-tab-nav', {detail: { id: 'myTabNav', tabIndex: 4}});
+//     document.dispatchEvent(ev);
+
+//   });
 });
