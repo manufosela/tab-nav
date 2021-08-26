@@ -30,8 +30,8 @@ class TabNav extends LitElement {
   constructor() {
     super();
     this.loadedText = [];
-    this.title = '';
-    this.tabItems = []; // Array de objectos con campos: title, icon, page o content
+    this.title = 'TAB NAV DEMO';
+    this.tabItems = []; // Array de objetos con campos: title, icon, page o content
     const tabDomItems = [...this.querySelectorAll('li')];
     tabDomItems.forEach((tabItem, index) => {
       this.tabItems.push({
@@ -63,9 +63,13 @@ class TabNav extends LitElement {
           });
       }
     });
+    if (this.tabItems.length === 0) {
+
+    }
   }
 
   firstUpdated() {
+    super.firstUpdated();
     this.shadowRoot.querySelector('#tab1').click();
   }
 
@@ -74,21 +78,21 @@ class TabNav extends LitElement {
       <h1>${this.title}</h1>
       <div class="tabs">
         ${this.tabItems.map((tabItem, index) => {
-    return html`    
-        <input type="radio" id="tab${index + 1}" name="tab-control">
-        `;
-  })}
+          return html`    
+            <input type="radio" id="tab${index + 1}" name="tab-control">
+          `;
+          })}
         <ul>
           ${this.tabItems.map((tabItem, index) => {
-    return html`
+            return html`
             <li title="${tabItem.title}">
-              <label for="tab${index + 1}" role="button">
+              <label for="tab${index + 1}">
                 ${tabItem.icon ? html`<span class="icon">${tabItem.icon}</span>` : ''}
-                <span>${tabItem.title}</span>
+                <span role="button">${tabItem.title}</span>
               </label>
             </li>
             `;
-  })}
+            })}
         </ul>
         
         <div class="slider"><div class="indicator"></div></div>

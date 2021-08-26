@@ -5,7 +5,7 @@ export const tabNavStyles = css`
         color: #333;
         font-family: "Raleway";
         height: 100%;
-        --color-primary: #428BFF;
+        --color-primary: #0447b3;
         --color-secondary: #929daf;
         --color-tertiary: #bec5cf;
       }
